@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  #iconContainerNewDash {
+    align-self: center;
+    padding: 8px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 1.8rem;
+  }
+}
+
+.dashboard {
+  box-shadow: 0 0 5px var(--secondary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 400px;
+  height: 600px;
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+  margin: 30px;
+  form {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 100%;
+      background-color: var(--secondary-color);
+      font-size: 1.8rem;
+      outline: none;
+      padding-left: 5px;
+      border: none;
+      color: var(--font-color);
+      font-weight: bold;
+    }
+    .iconContainer {
+      color: #d72323;
+      background-color: var(--secondary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    #dashboard-submit {
+      display: none;
+    }
+  }
+  .cards {
+    overflow: auto;
+    background-color: var(--card-color);
+    .iconContainer {
+      padding: 12px 8px;
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.cardContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  &:hover > svg {
+    display: flex;
+  }
+  input {
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    padding: 7px;
+    background-color: var(--input-color);
+    font-size: 1.3rem;
+    color: var(--font-color);
+  }
+  textarea {
+    outline: none;
+    background-color: #fff4e3;
+    resize: none;
+    font-size: 1rem;
+    padding-left: 5px;
+  }
+  .iconContainerTrash {
+    display: none;
+    color: #d72323;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+  }
+  .iconContainerCopy {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 38px;
+    top: 25px;
+    color: var(--secondary-color);
+  }
+  .iconContainerEdit {
+    display: none;
+    color: var(--card-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 62px;
+    top: 23px;
+  }
+
+  path {
+    pointer-events: none;
+  }
+}
+
+:root {
+  --secondary-color: #ea9c1b;
+  --input-color: #ffcdab;
+  --bg-color: #111111;
+  --card-color: #3f3b3b;
+  --font-color: black;
+}
+
+[data-theme="light"] {
+  --secondary-color: #1e6262;
+  --input-color: #2d767f;
+  --bg-color: #ecfffb;
+  --card-color: #b4f1f1;
+  --font-color: white;
+}
+
+#theme {
+  height: 5vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 50px;
+  span {
+    font-weight: bold;
+    padding-right: 10px;
+    color: var(--secondary-color);
+  }
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    .theme-switch {
+      display: inline-block;
+      height: 22px;
+      position: relative;
+      width: 45px;
+      input {
+        display: none;
+        &:checked + .slider:before {
+          transform: translateX(20px);
+        }
+      }
+      .slider {
+        background: var(--secondary-color);
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.4s;
+        &:before {
+          background-color: var(--bg-color);
+          bottom: 3px;
+          content: "";
+          height: 17px;
+          left: 4px;
+          position: absolute;
+          transition: 0.4s;
+          width: 17px;
+        }
+      }
+      .round {
+        border-radius: 34px;
+        &:before {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  transition: 0.5s;
+
+}
+
+::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 5px;
+  background: var(--secondary-color);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:var(--secondary-color);
+  border: 1px solid transparent;
+  transition: 0.5s;
+  background-clip: content-box;
+}
+
